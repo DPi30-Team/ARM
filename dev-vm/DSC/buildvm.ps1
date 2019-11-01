@@ -81,34 +81,11 @@ Process {
 	Copy-Item -Path "$scriptpath\use-small.psm1" -Destination "C:\Azure\use-small.psm1"
 	Copy-Item -Path "$scriptpath\task-bar.vbs" -Destination "C:\Azure\task-bar.vbs"
 
-	Import-Module "C:\\Azure\\set-rv-short.psm1"
-
-	Import-Module "c:\\Azure\\change-desktop-icon-size"
-	ChangeDesktopIconSize -IconSize 24
-	Stop-Process -name explorer
-
-	Import-Module "c:\\Azure\\use-small.psm1"
-	UseSmallTaskbarIcons
-
-	Invoke-Expression "C:\Azure\task-bar.vbs 'c:\windows\system32\cmd.exe'"
-	Invoke-Expression "c:\Azure\taskbarpin.vbs 'c:\windows\system32\WindowsPowerShell\v1.0\PowerShell_ISE.exe'"
-	Invoke-Expression "c:\Azure\scripts\taskbarpin.vbs 'C:\Program Files (x86)\Microsoft SQL Server\140\Tools\Binn\ManagementStudio\Ssms.exe'"
-
-	Invoke-Expression "c:\Azure\taskbarpin.vbs 'C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\Common7\IDE\devenv.exe'"
-	Set-RvShortcutToRunAsAdministrator -Path 'C:\Users\devAdmin\AppData\Roaming\Microsoft\Internet Explorer\Quick Launch\User Pinned\TaskBar\Visual Studio 2019.lnk' -Verbose
-
-    #adding a VSC shortcut on the public desktop
+	 #adding a VSC shortcut on the public desktop
     $WshShell = New-Object -comObject WScript.Shell
     $Shortcut = $WshShell.CreateShortcut("c:\Users\devAdmin\Desktop\Visual Studio Code.lnk")
     $Shortcut.TargetPath = "C:\Program Files\Microsoft VS Code\Code.exe"
     $Shortcut.Arguments = '"C:\Azure\DPi30"'
-    $Shortcut.Save()
-
-    #adding Azure Deployment Library shortcut on the desktop
-    $WshShell = New-Object -comObject WScript.Shell
-    $Shortcut = $WshShell.CreateShortcut("c:\Users\devAdmin\Desktop\Azure DPi30.lnk")
-    $Shortcut.TargetPath = "https://dev.azure.com/quisitive/DPi30/_dashboards/dashboard/e7435674-df82-44d4-a54a-706a4742d6a5"
-    $Shortcut.IconLocation = "C:\Azure\dpi30.ico"
     $Shortcut.Save()
 
     #disable server manager at login time
@@ -117,7 +94,7 @@ Process {
     # Clone Azure DPi30 repo
     New-Item -ItemType directory -Path "C:\Azure"
     Set-Location -Path "C:\Azure"
-    . "C:\Program Files\Git\bin\git.exe" clone https://github.com/AzureArchitecture/arm-templates
+    . "C:\Program Files\Git\bin\git.exe" clone https://github.com/DPi30-Team/ARM
     Set-Location -Path $scriptPath
 
     Install-Module PSWindowsUpdate -force
