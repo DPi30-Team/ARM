@@ -201,9 +201,8 @@
             "settings": {
               "fileUris": [
                 "[concat(uri(variables('_artifactsLocation'), 'DSC/buildvm.ps1'))]",
-                "[concat(uri(variables('_artifactsLocation'), 'Files/InstallVSCExtensions.bat'))]",
-                "[concat(uri(variables('_artifactsLocation'), 'Files/UninstallVSCExtensions.bat'))]",
-                "[concat(uri(variables('_artifactsLocation'), 'Files/DPi30.ico'))]"
+                "[concat(uri(variables('_artifactsLocation'), 'files/InstallVSCExtensions.bat'))]",
+                "[concat(uri(variables('_artifactsLocation'), 'files/dpi30.ico'))]"
               ],
 
               "commandToExecute": "[concat('powershell -ExecutionPolicy bypass -File ', 'buildvm.ps1', ' -rdpPort ', parameters('rdpPort'))]"
