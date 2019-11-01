@@ -34,7 +34,7 @@ Process {
     . choco.exe feature enable -n=allowGlobalConfirmation
     . choco.exe install git.install
     . choco.exe install vscode
-    . choco.exe install google-chrome-x64 -y
+    . choco.exe install googlechrome -y
     . choco.exe install azcopy
 	. choco.exe install github-desktop -y
 	. choco.exe install azuredatastudio-powershell -y
