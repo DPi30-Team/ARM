@@ -150,7 +150,7 @@
           "imageReference": {
             "publisher": "microsoftvisualstudio",
             "offer": "visualstudio2019latest",
-            "pan": "visualstudio2019latestvs-2019-comm-latest-win10-n",
+            "sku": "vs-2019-ent-latest-ws2019",
             "version": "latest"
           },
           "osDisk": {
